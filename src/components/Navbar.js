@@ -1,19 +1,40 @@
 // src/components/Navbar.js
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 
-const Navbar = () => {
+function Navbar() {
+  const navigate = useNavigate();
+  const role = localStorage.getItem("role");
+
+  const handleLogout = () => {
+    localStorage.clear();
+    navigate("/login");
+  };
+
   return (
     <nav className="navbar">
-      <h2 className="logo">SmartCook</h2>
-      <div className="nav-links">
-        <Link to="/">Home</Link>
-        <Link to="/login">Login</Link>
-        <Link to="/signup">Signup</Link>
+      <Link className="navbar-brand" to="/">SmartCook</Link>
+      <div className="navbar-links">
+        {role === "admin" ? (
+          <>
+            <Link to="/admin">Admin Dashboard</Link>
+            <button onClick={handleLogout}>Logout</button>
+          </>
+        ) : role === "user" ? (
+          <>
+            <Link to="/add">Add Recipe</Link>
+            <button onClick={handleLogout}>Logout</button>
+          </>
+        ) : (
+          <>
+            <Link to="/login">Login</Link>
+            <Link to="/signup">Signup</Link>
+          </>
+        )}
       </div>
     </nav>
   );
-};
+}
 
 export default Navbar;

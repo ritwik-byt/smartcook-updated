@@ -1,0 +1,170 @@
+/* src/pages/AdminDashboard.css */
+
+.admin-page {
+  height: 100vh;
+  background: url("https://images.unsplash.com/photo-1498579809087-ef1e558fd1da?auto=format&fit=crop&w=1950&q=80")
+    no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10%;
+  position: relative;
+  color: white;
+  overflow-y: auto;
+}
+
+.quote-box {
+  max-width: 40%;
+  font-family: "Georgia", serif;
+}
+
+.quote-box h1 {
+  font-size: 2.5rem;
+}
+
+.quote-box p {
+  font-size: 1.2rem;
+  font-style: italic;
+}
+
+.admin-box {
+  background-color: rgba(0, 0, 0, 0.75);
+  padding: 30px;
+  border-radius: 12px;
+  width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.admin-header h2 {
+  font-size: 24px;
+}
+
+.admin-header button {
+  background-color: #f44336;
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.admin-header button:hover {
+  background-color: #d32f2f;
+}
+
+.admin-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.admin-buttons button {
+  flex: 1;
+  margin: 0 6px;
+  padding: 10px 16px;
+  background-color: #2196f3;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.admin-buttons button:hover {
+  background-color: #0b79d0;
+}
+
+.admin-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.admin-recipe-card {
+  background-color: white;
+  color: #333;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.admin-recipe-card h3 {
+  margin-top: 0;
+  font-size: 20px;
+  color: #1976d2;
+}
+
+.admin-recipe-card p {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.admin-recipe-card img {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.approve-btn {
+  background-color: #4caf50;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.delete-btn {
+  background-color: #f44336;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.approve-btn:hover {
+  background-color: #388e3c;
+}
+
+.delete-btn:hover {
+  background-color: #c62828;
+}
+
+@media (max-width: 768px) {
+  .admin-page {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+  }
+
+  .quote-box {
+    margin-bottom: 20px;
+    max-width: 100%;
+  }
+
+  .admin-box {
+    width: 100%;
+  }
+}
