@@ -16,7 +16,7 @@ function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5050/api/users/signup", form);
+      await axios.post("https://smartcook-backend-1.onrender.com/api/users/signup", form);
       navigate("/login");
     } catch (err) {
       setError(err?.response?.data?.error || "Signup failed");

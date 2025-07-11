@@ -31,7 +31,7 @@ function Home() {
       if (currentCategory !== 'all') params.category = currentCategory;
       if (currentSearchQuery) params.search = currentSearchQuery;
 
-      const res = await axios.get('http://localhost:5050/api/recipes', { params });
+      const res = await axios.get('https://smartcook-backend-1.onrender.com/api/recipes', { params });
       const recipes = res.data;
       setFilteredRecipes(recipes);
       setLoading(false);

@@ -13,7 +13,7 @@ function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5050/api/users/login", {
+      const res = await axios.post("https://smartcook-backend-1.onrender.com/api/users/login", {
         email,
         password,
       });

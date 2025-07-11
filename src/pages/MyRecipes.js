@@ -16,7 +16,7 @@ const MyRecipes = () => {
 
   const fetchMyRecipes = async () => {
     try {
-      const response = await fetch(`http://localhost:5050/api/recipes/mine?author=${author}`);
+      const response = await fetch(`https://smartcook-backend-1.onrender.com/api/recipes/mine?author=${author}`);
       const data = await response.json();
       setMyRecipes(data);
     } catch (error) {

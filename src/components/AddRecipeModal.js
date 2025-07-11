@@ -17,7 +17,7 @@ function AddRecipeModal({ isOpen, onClose, onRecipeAdded }) {
     const token = localStorage.getItem("token");
     if (!token) return alert("You must be logged in.");
 
-    const res = await fetch("http://localhost:5050/api/recipes", {
+    const res = await fetch("https://smartcook-backend-1.onrender.com/api/recipes", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

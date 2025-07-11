@@ -14,7 +14,7 @@ function AdminDashboard() {
 
   const fetchPendingRecipes = async () => {
     try {
-      const res = await axios.get("http://localhost:5050/api/recipes/pending");
+      const res = await axios.get("https://smartcook-backend-1.onrender.com/api/recipes/pending");
       setPendingRecipes(res.data);
     } catch (err) {
       console.error("Error fetching pending recipes:", err.message);
@@ -23,7 +23,7 @@ function AdminDashboard() {
 
   const fetchApprovedRecipes = async () => {
     try {
-      const res = await axios.get("http://localhost:5050/api/recipes");
+      const res = await axios.get("https://smartcook-backend-1.onrender.com/api/recipes");
       setApprovedRecipes(res.data);
     } catch (err) {
       console.error("Error fetching approved recipes:", err.message);
@@ -32,7 +32,7 @@ function AdminDashboard() {
 
   const handleApprove = async (id) => {
     try {
-      await axios.patch(`http://localhost:5050/api/recipes/${id}/approve`);
+      await axios.patch(`https://smartcook-backend-1.onrender.com/api/recipes/${id}/approve`);
       fetchPendingRecipes();
       fetchApprovedRecipes();
     } catch (err) {
@@ -49,7 +49,7 @@ function AdminDashboard() {
         return;
       }
 
-      await axios.delete(`http://localhost:5050/api/recipes/${id}`);
+      await axios.delete(`https://smartcook-backend-1.onrender.com/api/recipes/${id}`);
       fetchPendingRecipes();
       fetchApprovedRecipes();
     } catch (err) {
