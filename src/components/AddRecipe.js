@@ -6,7 +6,7 @@ function AddRecipe() {
   const [form, setForm] = useState({
     title: "",
     description: "",
-    image: "",
+    imageUrl: "", // ✅ aligned with backend
     category: "",
     cookTime: "",
     servings: "",
@@ -37,13 +37,13 @@ function AddRecipe() {
       await axios.post("https://smartcook-backend-1.onrender.com/api/recipes", {
         ...form,
         author: user?.username || "Anonymous",
-        approved: false,
+        approved: false, // ✅ Only show after admin approval
       });
-      alert("✅ Recipe submitted for approval!");
+      alert("✅ Recipe submitted for admin approval!");
       setForm({
         title: "",
         description: "",
-        image: "",
+        imageUrl: "",
         category: "",
         cookTime: "",
         servings: "",
@@ -71,16 +71,16 @@ function AddRecipe() {
           />
           <textarea
             name="description"
-            placeholder="Brief description of your recipe..."
+            placeholder="Short description..."
             value={form.description}
             onChange={handleChange}
             required
           ></textarea>
           <input
             type="text"
-            name="image"
+            name="imageUrl"
             placeholder="Image URL"
-            value={form.image}
+            value={form.imageUrl}
             onChange={handleChange}
           />
           <select
@@ -89,16 +89,16 @@ function AddRecipe() {
             onChange={handleChange}
             required
           >
-            <option value="">Select a category</option>
-            <option>Breakfast</option>
-            <option>Lunch</option>
-            <option>Dinner</option>
-            <option>Dessert</option>
+            <option value="">Select Category *</option>
+            <option>breakfast</option>
+            <option>lunch</option>
+            <option>dinner</option>
+            <option>dessert</option>
           </select>
           <input
             type="number"
             name="cookTime"
-            placeholder="Cook Time (in minutes)"
+            placeholder="Cook Time (minutes)"
             value={form.cookTime}
             onChange={handleChange}
           />
@@ -113,33 +113,39 @@ function AddRecipe() {
 
         <div className="form-section">
           <label>Ingredients</label>
-          {form.ingredients.map((ing, i) => (
+          {form.ingredients.map((item, i) => (
             <input
               key={i}
-              value={ing}
+              value={item}
               onChange={(e) => handleChange(e, i, "ingredients")}
               placeholder={`Ingredient ${i + 1}`}
               required
             />
           ))}
-          <button type="button" onClick={() => addField("ingredients")}>+ Add Ingredient</button>
+          <button type="button" onClick={() => addField("ingredients")}>
+            + Add Ingredient
+          </button>
         </div>
 
         <div className="form-section">
           <label>Instructions</label>
-          {form.instructions.map((inst, i) => (
+          {form.instructions.map((item, i) => (
             <textarea
               key={i}
-              value={inst}
+              value={item}
               onChange={(e) => handleChange(e, i, "instructions")}
               placeholder={`Step ${i + 1}`}
               required
             />
           ))}
-          <button type="button" onClick={() => addField("instructions")}>+ Add Step</button>
+          <button type="button" onClick={() => addField("instructions")}>
+            + Add Step
+          </button>
         </div>
 
-        <button type="submit" className="submit-btn">📬 Submit Recipe</button>
+        <button type="submit" className="submit-btn">
+          📬 Submit Recipe
+        </button>
       </form>
     </div>
   );
