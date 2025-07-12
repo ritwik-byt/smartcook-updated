@@ -1,59 +1,95 @@
 .add-recipe-container {
-  max-width: 700px;
-  margin: auto;
+  max-width: 800px;
+  margin: 2rem auto;
   padding: 2rem;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
 }
 
-.add-recipe-container h2 {
+.add-recipe-title {
   text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
   margin-bottom: 1.5rem;
+  color: #222;
 }
 
-form input,
-form select,
-form textarea {
+.add-recipe-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.add-recipe-form input,
+.add-recipe-form textarea,
+.add-recipe-form select {
   width: 100%;
-  padding: 12px;
-  margin-bottom: 15px;
-  border-radius: 8px;
+  padding: 0.9rem 1rem;
   border: 1px solid #ccc;
+  border-radius: 10px;
   font-size: 1rem;
+  transition: border 0.3s ease;
 }
 
-form textarea {
-  min-height: 80px;
-  resize: vertical;
+.add-recipe-form input:focus,
+.add-recipe-form textarea:focus,
+.add-recipe-form select:focus {
+  outline: none;
+  border-color: #ff5722;
 }
 
-form .form-section {
-  margin-bottom: 2rem;
+.add-recipe-form label {
+  font-weight: 500;
+  margin-bottom: 0.4rem;
 }
 
-form button[type="button"] {
-  background: #f9f9f9;
-  color: #333;
-  border: 1px dashed #aaa;
-  padding: 8px 12px;
+.dynamic-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.dynamic-fields input {
+  margin-bottom: 0;
+}
+
+.add-btn {
+  background-color: #ff5722;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  border: none;
   border-radius: 6px;
   cursor: pointer;
-  margin-top: -10px;
+  transition: background 0.3s ease;
+  margin-top: 0.25rem;
 }
 
-.submit-btn {
+.add-btn:hover {
+  background-color: #e64a19;
+}
+
+.submit-button {
   background-color: #28a745;
   color: white;
-  font-weight: bold;
-  font-size: 1.1rem;
-  padding: 12px;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
   border: none;
   border-radius: 10px;
-  width: 100%;
   cursor: pointer;
+  margin-top: 1.5rem;
+  transition: background-color 0.3s ease;
 }
 
-.submit-btn:hover {
+.submit-button:hover {
   background-color: #218838;
+}
+
+@media (max-width: 600px) {
+  .add-recipe-container {
+    padding: 1.5rem;
+  }
 }
