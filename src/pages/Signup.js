@@ -1,4 +1,3 @@
-// src/pages/Signup.js
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
@@ -7,19 +6,30 @@ import "./Signup.css";
 function Signup() {
   const navigate = useNavigate();
   const [form, setForm] = useState({
-    username: "",
+    name: "",
     email: "",
-    password: "",
+    password: ""
   });
   const [error, setError] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError(""); // Clear previous errors
+
     try {
-      await axios.post("https://smartcook-backend-1.onrender.com/api/users/signup", form);
+      // ✅ Explicitly send the correct fields
+      const response = await axios.post("https://smartcook-backend-1.onrender.com/api/users/signup", {
+        name: form.name,
+        email: form.email,
+        password: form.password,
+        role: "user"
+      });
+
+      console.log("✅ Signup success:", response.data);
       navigate("/login");
     } catch (err) {
-      setError(err?.response?.data?.error || "Signup failed");
+      console.error("❌ Signup error:", err);
+      setError(err.response?.data?.error || "Signup failed");
     }
   };
 
@@ -37,10 +47,10 @@ function Signup() {
         <form onSubmit={handleSubmit}>
           <input
             type="text"
-            placeholder="Username"
+            placeholder="Name"
             required
-            value={form.username}
-            onChange={(e) => setForm({ ...form, username: e.target.value })}
+            value={form.name}
+            onChange={(e) => setForm({ ...form, name: e.target.value })}
           />
           <input
             type="email"
