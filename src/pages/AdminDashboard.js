@@ -23,7 +23,7 @@ function AdminDashboard() {
 
   const fetchApprovedRecipes = async () => {
     try {
-      const res = await axios.get("https://smartcook-backend-1.onrender.com/api/recipes");
+      const res = await axios.get("https://smartcook-backend-1.onrender.com/api/recipes/approved");
       setApprovedRecipes(res.data);
     } catch (err) {
       console.error("Error fetching approved recipes:", err.message);
@@ -42,7 +42,7 @@ function AdminDashboard() {
 
   const handleDelete = async (id) => {
     try {
-      console.log("🔍 Attempting to delete recipe with ID:", id); // ✅ Step 1: Confirm the ID is valid
+      console.log("🔍 Attempting to delete recipe with ID:", id);
 
       if (!id || typeof id !== "string") {
         console.error("❌ Invalid recipe ID:", id);
